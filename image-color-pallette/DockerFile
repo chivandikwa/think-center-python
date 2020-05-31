@@ -1,0 +1,21 @@
+FROM python:3.8
+
+ARG WORK_DIR=image-color-pallette
+
+
+# Install app dependencies
+COPY ./$WORK_DIR/requirements.txt ./
+
+RUN pip install -r requirements.txt
+
+
+COPY ./$WORK_DIR/ /app/$WORK_DIR/
+COPY ./common /app/common
+COPY ./$WORK_DIR/main.py /app/
+
+
+CMD [ "python", "/app/main.py" ]
+
+# docker build -t image-color-palette:latest -f image-color-pallette/Dockerfile .
+
+# docker-compose scale color-palette-bot=2

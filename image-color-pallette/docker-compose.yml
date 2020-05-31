@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  color-palette-bot:
+    image: image-color-palette:latest
+    build: .
+    env_file:
+      - prod.env
+#    environment:
+#      SAMPLE: ${OneDrive} pass own env variable from current machine
+#      SAMPLE: gjghj pass explicit values
